@@ -8,6 +8,7 @@ def index(request):
 def signup_user(request):
     username=request.POST["name"]
     password=request.POST["password"]
-    new_user=RegisterUser.objects.create(username=username,password=password,emailuser="aditi")
+    profile_picture=request.FILES["photo"]
+    new_user=RegisterUser.objects.create(username=username,password=password,profile_picture=profile_picture)
     new_user.save()
     return render(request,"signup_user.html",context={"name":username})

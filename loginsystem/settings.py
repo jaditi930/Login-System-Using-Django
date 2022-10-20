@@ -69,8 +69,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'loginsystem.wsgi.application'
-
-
+MEDIA_ROOT=BASE_DIR/"user_profiles"
+MEDIA_URL="/user_profiles/"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
