@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import Http404, HttpResponse,JsonResponse
+from django.shortcuts import render,redirect
+from django.http import HttpResponse
 from .models import RegisterUser
 from django.contrib.auth import authenticate,login,logout
 
@@ -22,7 +22,7 @@ def authenticate_user(request):
         return HttpResponse("Not found")
 def logout_user(request):
     logout(request)
-    return render(request,"index.html")
+    return redirect("/")
 def signup_user(request):
     username=request.POST["name"]
     password=request.POST["password"]
