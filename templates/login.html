@@ -9,9 +9,11 @@
 <body>
     <form method="POST" action="/user_authenticate/">
         {% csrf_token %}
-        <input type="text" name="name">
-        <input type="password" name="password">
-        <button type="submit"></button>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="pass">Password</label>
+        <input type="password" id="pass" name="password">
+        <button type="submit">Login</button>
     </form>
 </body>
 </html>

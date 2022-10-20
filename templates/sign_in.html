@@ -27,11 +27,15 @@
     </form>
     <script>
         function check(){
-            console.log(document.getElementsByName("password")[0].value,document.getElementsByName("confirm-pass")[0].value)
             if (document.getElementsByName("password")[0].value!=document.getElementsByName("confirm-pass")[0].value)
-            document.getElementsByName("new_user")[0].action=""
+            {
+                document.getElementsByName("new_user")[0].action=""
+                alert("Passwords don't match!Try Again")
+            }
             else
+            {
             document.getElementsByName("new_user")[0].action="/signup_user/"
+            }
 
         }
     </script>
