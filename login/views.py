@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 def index(request):
     return render(request,"index.html")
+def signin(request):
+    return render(request,"sign_in.html")
 def log_user(request):
     return render(request,"login.html")
 
@@ -29,4 +31,4 @@ def signup_user(request):
     new_user.set_password(password)
     new_user.save()
 
-    return render(request,"signup_user.html",context={"name":username})
+    return render(request,"login.html")
