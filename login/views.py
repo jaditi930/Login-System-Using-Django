@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import RegisterUser
 from .forms import RegisterUserForm
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -17,8 +18,10 @@ def authenticate_user(request):
     username=request.POST["name"]
     password=request.POST["password"]
     user=RegisterUser.objects.get(username=username)
-    user.check_password(password)
-    if user is not None:
+    print(user)
+    i=user.check_password(password)
+    # user=authenticate(username=username,password=password)
+    if i is not False:
         login(request,user)
         return render(request,"user_details.html",{"user":user})
     else:
@@ -28,11 +31,11 @@ def logout_user(request):
     return redirect("/")
 def signup_user(request):
     new_form=RegisterUserForm(request.POST or None, request.FILES or None)
+    form=new_form.save(commit=False)
     try:
-        new_form.save()
         this_user=RegisterUser.objects.get(username=new_form.cleaned_data['username'])
-        this_user.set_password(new_form.cleaned_data['password'])
-        print(this_user.password)
-        return render(request,"login.html")
-    except:
         return redirect("/signin/")
+    except:
+        form.set_password(new_form.cleaned_data['password'])
+        form.save()
+        return render(request,"login.html")

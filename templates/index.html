@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
-</head>
-<body>
-    <a href="signin/">New User?Sign Up Here!</a>
-    <a href="login_user/">Existing User?Login Here!</a>
-</body>
-</html>
+{% extends 'base.html'%}
+{% block content %}
+<div class="alert alert-danger" role="alert">
+    New User?<a href="signin/" class="alert-link">Sign Up Here!</a>
+  </div>
+  <div class="alert alert-info" role="alert">
+    Existing User?<a href="login_user/" class="alert-link">Login Here!</a>
+  </div>
+{% endblock %}
