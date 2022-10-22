@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <form name="new_user" method="POST" enctype="multipart/form-data">
+    <form name="new_user" method="POST" enctype="multipart/form-data" action="/signup_user/">
         {% csrf_token %}
-        <label for="name">UserName
+        <!-- <label for="name">UserName
 
             <input type="text" id="name" name="name">
         </label>
@@ -22,8 +22,9 @@
         </label>
         <label for="file">Profile Photo
             <input type="file" id="file" name="photo">
-        </label>
-        <button type="submit" onclick="check()">Submit</button>
+        </label>-->
+        {{form.as_p}}
+        <button type="submit" onclick="check()">Submit</button> 
     </form>
     <script>
         function check(){
