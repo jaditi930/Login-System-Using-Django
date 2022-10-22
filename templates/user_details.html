@@ -7,8 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    Wohoo!Yu are logged in!
-    Hello {{user.username}}
+   
+    <img src="/user_profiles/{{user.profile_picture}}" height="200" width="200" alt="">
+    <div>
+        Wohoo!Yu are logged in!
+        Hello {{user.username}}
+    </div>
     <a href="/logout/">Log Out</a>
 </body>
 </html>
