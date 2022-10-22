@@ -7,28 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form name="new_user" method="POST" enctype="multipart/form-data" action="/signup_user/">
+    <form name="new_user" method="POST" enctype="multipart/form-data" >
         {% csrf_token %}
-        <!-- <label for="name">UserName
-
-            <input type="text" id="name" name="name">
-        </label>
-        <label for="pass">Password
-
-            <input type="password" id="pass" name="password">
-        </label>
-        <label for="confirm-pass">Confirm Password
-            <input type="password" name="confirm-pass" id="confirm-pass">
-        </label>
-        <label for="file">Profile Photo
-            <input type="file" id="file" name="photo">
-        </label>-->
         {{form.as_p}}
         <button type="submit" onclick="check()">Submit</button> 
     </form>
     <script>
         function check(){
-            if (document.getElementsByName("password")[0].value!=document.getElementsByName("confirm-pass")[0].value)
+            if (document.getElementsByName("password")[0].value!=document.getElementsByName("confirm_pass")[0].value)
             {
                 document.getElementsByName("new_user")[0].action=""
                 alert("Passwords don't match!Try Again")

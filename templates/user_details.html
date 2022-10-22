@@ -4,15 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{user.id}}</title>
 </head>
 <body>
    
     <img src="/user_profiles/{{user.profile_picture}}" height="200" width="200" alt="">
     <div>
-        Wohoo!Yu are logged in!
-        Hello {{user.username}}
+       <p> Wohoo!Yu are logged in!</p>
+        <p>Hello {{user.username}}</p>
     </div>
+    <table>
+        <tr>
+            <th>User Details</th>
+            <th></th>
+        </tr>
+          <td>First Name</td>
+          <td>{{user.first_name}}</td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>{{user.last_name}}</td>
+        </tr>
+        <tr>
+          <td>Email Address</td>
+          <td>{{user.email}}</td>
+        </tr>
+      </table>
     <a href="/logout/">Log Out</a>
 </body>
 </html>
