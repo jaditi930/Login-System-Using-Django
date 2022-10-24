@@ -17,13 +17,11 @@ def log_user(request):
 def authenticate_user(request):
     username=request.POST["name"]
     password=request.POST["password"]
-    user=RegisterUser.objects.get(username=username)
-    print(user)
-    i=user.check_password(password)
-    # user=authenticate(username=username,password=password)
-    if i is not False:
+    user=authenticate(username=username,password=password)
+    if user is not None:
         login(request,user)
-        return render(request,"user_details.html",{"user":user})
+        this_user=RegisterUser.objects.get(username=username)
+        return render(request,"user_details.html",{"user":this_user})
     else:
         return redirect("/")
 def logout_user(request):
